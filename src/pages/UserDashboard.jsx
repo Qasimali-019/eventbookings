@@ -387,7 +387,7 @@ const UserDashboard = () => {
     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F8FAFC', fontFamily: 'Outfit' }}>
       <DashboardSidebar role="user" activeTab={activeTab === 'eventHub' ? 'mybookings' : activeTab} setActiveTab={setActiveTab} />
       
-      <main style={{ flex: 1, padding: '40px', overflowY: 'auto', marginLeft: '260px' }}>
+      <main className="dashboard-content" style={{ overflowY: 'auto' }}>
         {activeTab !== 'eventHub' && (
           <div style={{ marginBottom: '32px' }}>
             <h1 style={{ fontSize: '28px', color: 'var(--bg-navy)', fontWeight: '800', marginBottom: '8px' }}>

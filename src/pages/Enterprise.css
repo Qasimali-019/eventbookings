@@ -694,4 +694,25 @@
 @media (max-width: 600px) {
   .ent-hero__ctas { flex-direction: column; }
   .ent-custom-illustration { grid-template-columns: 1fr; }
+  
+  .ent-hero {
+    padding: 100px 0 40px;
+  }
+
+  .ent-btn--large {
+    padding: 14px 32px;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .ent-hero__title {
+    font-size: 26px;
+  }
+
+  .ent-suite__grid {
+    gap: 12px;
+  }
 }

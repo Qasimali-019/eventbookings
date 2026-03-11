@@ -261,3 +261,36 @@
     padding: 40px;
   }
 }
+
+@media (max-width: 600px) {
+  .signup-page {
+    padding: 20px 0;
+  }
+
+  .signup-container {
+    margin: 0 12px;
+    border-radius: 12px;
+  }
+
+  .signup-left {
+    padding: 40px 24px;
+  }
+
+  .signup-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .signup-right {
+    padding: 32px 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .social-signup {
+    flex-direction: column;
+  }
+}

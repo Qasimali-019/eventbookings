@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { LogOut } from 'lucide-react';
+import { LogOut, Menu, X } from 'lucide-react';
 import './DashboardSidebar.css';
 
 const DashboardSidebar = ({ role, activeTab, setActiveTab }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const userMenu = [
     { name: 'Overview', id: 'dashboard' },
@@ -31,39 +32,61 @@ const DashboardSidebar = ({ role, activeTab, setActiveTab }) => {
     logout(navigate);
   };
 
+  const handleTabClick = (id) => {
+    setActiveTab(id);
+    setMobileOpen(false);
+  };
+
   return (
-    <div className="dashboard-sidebar">
-      <div className="sidebar-header">
-        <Link to="/">
-          <img src="/logo.png" alt="EventBookings" className="sidebar-logo" />
-        </Link>
-      </div>
-      <nav className="sidebar-nav">
-        {menu.map((item, idx) => (
-          <button 
-            key={idx} 
-            onClick={() => setActiveTab(item.id)}
-            className={`sidebar-link ${activeTab === item.id ? 'active' : ''}`}
-            style={{ 
-              background: 'none', 
-              border: 'none', 
-              width: '100%', 
-              textAlign: 'left', 
-              cursor: 'pointer',
-              fontFamily: 'inherit'
-            }}
-          >
-            <span className="sidebar-text">{item.name}</span>
+    <>
+      {/* Mobile hamburger button */}
+      <button
+        className="sidebar-menu-toggle"
+        onClick={() => setMobileOpen(true)}
+        aria-label="Open menu"
+      >
+        <Menu size={22} />
+      </button>
+
+      {/* Mobile overlay */}
+      <div
+        className={`sidebar-mobile-overlay ${mobileOpen ? 'active' : ''}`}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      <div className={`dashboard-sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+        <div className="sidebar-header">
+          <Link to="/" onClick={() => setMobileOpen(false)}>
+            <img src="/logo.png" alt="EventBookings" className="sidebar-logo" />
+          </Link>
+        </div>
+        <nav className="sidebar-nav">
+          {menu.map((item, idx) => (
+            <button 
+              key={idx} 
+              onClick={() => handleTabClick(item.id)}
+              className={`sidebar-link ${activeTab === item.id ? 'active' : ''}`}
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                width: '100%', 
+                textAlign: 'left', 
+                cursor: 'pointer',
+                fontFamily: 'inherit'
+              }}
+            >
+              <span className="sidebar-text">{item.name}</span>
+            </button>
+          ))}
+        </nav>
+        <div className="sidebar-footer">
+          <button onClick={handleLogout} className="logout-btn">
+            <LogOut size={18} />
+            <span className="sidebar-text">Logout</span>
           </button>
-        ))}
-      </nav>
-      <div className="sidebar-footer">
-        <button onClick={handleLogout} className="logout-btn">
-          <LogOut size={18} />
-          <span className="sidebar-text">Logout</span>
-        </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -111,7 +111,7 @@ const CreateEvent = () => {
         return (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {ticketTiers.map((tier, idx) => (
-              <div key={tier.id} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr auto', gap: '12px', alignItems: 'center' }}>
+              <div key={tier.id} className="ticket-row">
                 <input 
                   type="text" placeholder="Tier (e.g. GA)" value={tier.name} 
                   onChange={(e) => { const newT = [...ticketTiers]; newT[idx].name = e.target.value; setTicketTiers(newT); }}
@@ -127,7 +127,7 @@ const CreateEvent = () => {
                   onChange={(e) => { const newT = [...ticketTiers]; newT[idx].capacity = e.target.value; setTicketTiers(newT); }}
                   style={inputStyle} 
                 />
-                <Trash2 size={18} color="#ef4444" style={{ cursor: 'pointer' }} onClick={() => setTicketTiers(ticketTiers.filter(t => t.id !== tier.id))} />
+                <Trash2 size={18} color="#ef4444" className="trash-icon" onClick={() => setTicketTiers(ticketTiers.filter(t => t.id !== tier.id))} />
               </div>
             ))}
             <button onClick={() => setTicketTiers([...ticketTiers, { id: Date.now(), name: '', price: 0, capacity: 100 }])} style={{ ...btnOutlineStyle, alignSelf: 'flex-start' }}><Plus size={16} /> Add Ticket Tier</button>
@@ -166,52 +166,52 @@ const CreateEvent = () => {
     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
       <DashboardSidebar role="admin" activeTab={activeTab} setActiveTab={setActiveTab} />
       
-      <main style={{ flex: 1, padding: '40px', marginLeft: '260px', overflowY: 'auto' }}>
+      <main className="dashboard-content create-event-container">
         
         {!hasSelectedTemplate ? (
-          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', paddingTop: '40px' }}>
-            <h1 style={{ fontSize: '32px', color: '#0F172A', fontWeight: '800', marginBottom: '16px' }}>What kind of event are you building?</h1>
-            <p style={{ color: '#64748B', fontSize: '16px', marginBottom: '40px' }}>Start with a template pre-loaded with the right modules, or build from scratch.</p>
+          <div className="template-selector">
+            <h1 className="builder-title">What kind of event are you building?</h1>
+            <p className="builder-subtitle">Start with a template pre-loaded with the right modules, or build from scratch.</p>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', textAlign: 'left' }}>
-              <div onClick={() => handleTemplateSelect('conference')} className="hover-scale" style={{ ...cardStyle, cursor: 'pointer', transition: 'transform 0.2s', borderTop: '4px solid #5D5CDE' }}>
-                <CalendarDays size={32} color="#5D5CDE" style={{ marginBottom: '16px' }} />
-                <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', marginBottom: '8px' }}>Conference / Summit</h3>
-                <p style={{ fontSize: '14px', color: '#64748B' }}>Includes Agenda, Tickets, and Speaker modules.</p>
+            <div className="template-grid">
+              <div onClick={() => handleTemplateSelect('conference')} className="template-card conference-card">
+                <CalendarDays size={32} color="#5D5CDE" />
+                <h3>Conference / Summit</h3>
+                <p>Includes Agenda, Tickets, and Speaker modules.</p>
               </div>
-              <div onClick={() => handleTemplateSelect('webinar')} className="hover-scale" style={{ ...cardStyle, cursor: 'pointer', transition: 'transform 0.2s', borderTop: '4px solid #10b981' }}>
-                <Video size={32} color="#10b981" style={{ marginBottom: '16px' }} />
-                <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', marginBottom: '8px' }}>Virtual Webinar</h3>
-                <p style={{ fontSize: '14px', color: '#64748B' }}>Includes Virtual Hub and Audience Engagement.</p>
+              <div onClick={() => handleTemplateSelect('webinar')} className="template-card webinar-card">
+                <Video size={32} color="#10b981" />
+                <h3>Virtual Webinar</h3>
+                <p>Includes Virtual Hub and Audience Engagement.</p>
               </div>
-              <div onClick={() => handleTemplateSelect('blank')} className="hover-scale" style={{ ...cardStyle, cursor: 'pointer', transition: 'transform 0.2s', borderTop: '4px solid #f59e0b' }}>
-                <Plus size={32} color="#f59e0b" style={{ marginBottom: '16px' }} />
-                <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', marginBottom: '8px' }}>Blank Slate</h3>
-                <p style={{ fontSize: '14px', color: '#64748B' }}>Start fresh and add only the modules you need.</p>
+              <div onClick={() => handleTemplateSelect('blank')} className="template-card blank-card">
+                <Plus size={32} color="#f59e0b" />
+                <h3>Blank Slate</h3>
+                <p>Start fresh and add only the modules you need.</p>
               </div>
             </div>
           </div>
         ) : (
           <>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-              <div>
-                <h1 style={{ fontSize: '28px', color: '#0F172A', fontWeight: '800', marginBottom: '8px' }}>Event Builder</h1>
-                <p style={{ color: '#64748B', fontSize: '15px' }}>Design your event flow visually with modules.</p>
+            <div className="builder-header">
+              <div className="builder-header-text">
+                <h1>Event Builder</h1>
+                <p>Design your event flow visually with modules.</p>
               </div>
-              <div style={{ display: 'flex', gap: '12px' }}>
-                <button onClick={() => navigate('/admin-dashboard')} style={{ ...btnOutlineStyle, borderColor: '#cbd5e1', color: '#64748B' }}>Cancel</button>
-                <button onClick={handleSave} style={btnPrimaryStyle}><Save size={18} /> Publish Event</button>
+              <div className="builder-actions">
+                <button onClick={() => navigate('/admin-dashboard')} className="btn-cancel">Cancel</button>
+                <button onClick={handleSave} className="btn-save"><Save size={18} /> Publish Event</button>
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '7fr 3fr', gap: '32px' }}>
+            <div className="builder-canvas-grid">
           {/* Main Canvas */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div className="builder-main-canvas">
             
             {/* Global Settings Block */}
             <div style={cardStyle}>
               <h2 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '20px', color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}><Settings2 size={20} color="#5D5CDE" /> Core Setup</h2>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-grid">
                 <div>
                   <label style={labelStyle}>Event Title</label>
                   <input type="text" placeholder="Awesome Tech Conf" value={basicDetails.title} onChange={(e) => setBasicDetails({...basicDetails, title: e.target.value})} style={inputStyle} />

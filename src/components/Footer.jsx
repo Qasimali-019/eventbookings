@@ -24,14 +24,12 @@ const Footer = () => {
             <ul>
               <li><Link to="/signup">Sign Up</Link></li>
               <li><Link to="/login">Sign In</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
           <div className="footer-link-group">
             <h4>Support</h4>
             <ul>
-              <li><Link to="/contact">Support Ticket</Link></li>
-              <li><Link to="/contact">Sales Inquiry</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
         </div>
@@ -45,10 +43,12 @@ const Footer = () => {
           <a href="#">Cookie Policy</a>
         </div>
         <div className="footer-social">
-          <a href="#"><i className="fa fa-instagram" /></a>
-          <a href="#"><i className="fa fa-facebook" /></a>
-          <a href="#"><i className="fa fa-twitter" /></a>
-          <a href="#"><i className="fa fa-linkedin" /></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram" /></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook" /></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter" /></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin" /></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><i className="fa fa-youtube-play" /></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"><i className="fa fa-tiktok" /></a>
         </div>
         <div className="footer-copyright">
           &copy; 2026 EventBookings. All rights reserved.

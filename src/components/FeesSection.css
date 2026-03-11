@@ -269,3 +269,53 @@
         font-size: 48px;
     }
 }
+
+@media (max-width: 768px) {
+    .fees-highlight-card {
+        padding: 40px 24px;
+        border-radius: 24px;
+        margin: 0 20px 80px 20px;
+    }
+
+    .fees-highlight-title {
+        font-size: 36px;
+    }
+
+    .fees-highlight-subtitle-bold {
+        font-size: 17px;
+    }
+
+    .fees-highlight-subtitle-normal {
+        font-size: 15px;
+    }
+
+    .features-showcase-title {
+        font-size: 32px;
+    }
+
+    .features-showcase-subtitle {
+        font-size: 15px;
+    }
+
+    .orgs-logos {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fees-highlight-title {
+        font-size: 28px;
+    }
+
+    .dark-fees-cents {
+        font-size: 52px;
+    }
+
+    .dark-fees-badge {
+        font-size: 24px;
+    }
+
+    .btn-create-event-fees {
+        width: 100%;
+    }
+}

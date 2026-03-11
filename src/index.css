@@ -98,3 +98,25 @@ h4 {
   display: grid;
   gap: 30px;
 }
+
+/* ========== GLOBAL RESPONSIVE ========== */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 48px 0;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

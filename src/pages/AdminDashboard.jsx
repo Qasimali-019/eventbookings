@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardSidebar from '../components/DashboardSidebar';
+import './Dashboard.css';
 import { 
   Users, Calendar, ShoppingCart, DollarSign, Plus, 
   Settings, AlertTriangle, Trash2, Zap, BarChart3, Clock 
@@ -350,7 +351,7 @@ const AdminDashboard = () => {
     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
       <DashboardSidebar role="admin" activeTab={activeTab} setActiveTab={setActiveTab} />
       
-      <main style={{ flex: 1, padding: '40px', overflowY: 'auto', marginLeft: '260px' }}>
+      <main className="dashboard-content">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
           <div>
             <h1 style={{ fontSize: '28px', color: '#0F172A', fontWeight: '800', marginBottom: '8px', textTransform: 'capitalize' }}>

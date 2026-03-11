@@ -6,6 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [expandedDropdown, setExpandedDropdown] = useState(null); // 'industry' or 'help'
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -19,6 +20,16 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+    setExpandedDropdown(null); // Close dropdowns when toggling menu
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setExpandedDropdown(null);
+  };
+
+  const toggleDropdown = (name) => {
+    setExpandedDropdown(expandedDropdown === name ? null : name);
   };
 
   const industries = [
@@ -49,7 +60,7 @@ const Navbar = () => {
       if (user.role === 'admin') {
         navigate('/admin-dashboard/create-event');
       } else {
-        navigate('/dashboard'); // Users can't create from here in this demo logic, but dashboards handle it
+        navigate('/admin-dashboard'); // Users go to dashboard, but admins can create
       }
     } else {
       navigate('/login');
@@ -67,29 +78,47 @@ const Navbar = () => {
           <span className="bar"></span>
         </button>
         <ul className={`navbar-menu-list ${mobileMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/">Features</Link></li>
-          <li className="has-dropdown">
-            <span className="nav-item-link">Industry <span className="navbar-caret">&#9662;</span></span>
-            <div className="dropdown-menu industry-dropdown">
+          <li><Link to="/" onClick={closeMobileMenu}>Features</Link></li>
+          <li className={`has-dropdown ${expandedDropdown === 'industry' ? 'dropdown-active' : ''}`}>
+            <span className="nav-item-link" onClick={() => toggleDropdown('industry')}>
+              Industry <span className="navbar-caret">&#9662;</span>
+            </span>
+            <div className={`dropdown-menu industry-dropdown ${expandedDropdown === 'industry' ? 'active' : ''}`}>
               {industries.map((item, idx) => (
-                <Link key={idx} to={`/industry/${item.name.toLowerCase()}`} className="dropdown-item">
+                <Link key={idx} to={`/industry/${item.name.toLowerCase()}`} className="dropdown-item" onClick={closeMobileMenu}>
                   <span className="dropdown-icon" style={{ backgroundColor: item.bg }}>{item.icon}</span>
                   <span className="dropdown-text">{item.name}</span>
                 </Link>
               ))}
             </div>
           </li>
-          <li><Link to="/enterprise">Enterprise</Link></li>
-          <li><Link to="/explore">Explore Events</Link></li>
-          <li><Link to="/pricing">Pricing</Link></li>
-          <li className="has-dropdown">
-            <span className="nav-item-link">Help <span className="navbar-caret">&#9662;</span></span>
-            <div className="dropdown-menu help-dropdown">
-              <Link to="/contact" className="dropdown-item">
+          <li><Link to="/enterprise" onClick={closeMobileMenu}>Enterprise</Link></li>
+          <li><Link to="/explore" onClick={closeMobileMenu}>Explore Events</Link></li>
+          <li><Link to="/pricing" onClick={closeMobileMenu}>Pricing</Link></li>
+          <li className={`has-dropdown ${expandedDropdown === 'help' ? 'dropdown-active' : ''}`}>
+            <span className="nav-item-link" onClick={() => toggleDropdown('help')}>
+              Help <span className="navbar-caret">&#9662;</span>
+            </span>
+            <div className={`dropdown-menu help-dropdown ${expandedDropdown === 'help' ? 'active' : ''}`}>
+              <Link to="/contact" className="dropdown-item" onClick={closeMobileMenu}>
                 <span className="dropdown-icon" style={{ backgroundColor: '#fce4ec' }}>📧</span>
                 <span className="dropdown-text">Contact us</span>
               </Link>
             </div>
+          </li>
+          {/* Mobile Only Items */}
+          <li className="mobile-only-item">
+            <Link to="/login" className="nav-item-link" onClick={closeMobileMenu}>Sign In / Sign Up</Link>
+          </li>
+          <li className="mobile-only-item">
+            <div className="navbar-country" style={{ color: 'var(--bg-navy)', padding: '16px 0', borderBottom: '1px solid #f8fafc' }}>
+              <img src={selectedCountry.flag} alt={selectedCountry.name} className="navbar-flag" /> {selectedCountry.name}
+            </div>
+          </li>
+          <li className="mobile-only-item">
+            <button className="navbar-create-event" onClick={() => { handleCreateEvent(); closeMobileMenu(); }} style={{ margin: '20px 0', width: '100%', justifyContent: 'center' }}>
+              Create Event
+            </button>
           </li>
         </ul>
       </div>

@@ -101,6 +101,20 @@
   }
 }
 
+@media (max-width: 768px) {
+  .industry-showcase-section {
+    padding: 60px 0;
+  }
+
+  .industry-title {
+    font-size: 32px;
+  }
+
+  .industry-mosaic-grid {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 600px) {
   .industry-mosaic-grid {
     grid-template-columns: 1fr;
@@ -110,5 +124,12 @@
   .card-large, .card-medium, .card-small {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  .industry-card-label {
+    left: 12px;
+    bottom: 12px;
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }

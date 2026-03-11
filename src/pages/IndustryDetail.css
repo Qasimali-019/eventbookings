@@ -270,7 +270,7 @@
 
 @media (max-width: 768px) {
   .ind-hero {
-    padding-top: 120px;
+    padding: 100px 20px 48px;
   }
   
   .ind-comparison h2, .ind-faq h2, .ind-bottom-cta h2 {
@@ -284,10 +284,36 @@
   .ind-feature-row--reverse {
     direction: ltr;
   }
+
+  .ind-feature-row {
+    margin-bottom: 60px;
+  }
 }
 
 @media (max-width: 480px) {
   .ind-hero__text h1 {
     font-size: 1.75rem;
+  }
+
+  .ind-hero__ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ind-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ind-hero {
+    padding-top: 120px;
+  }
+
+  .ind-comp-price {
+    font-size: 2.2rem;
+  }
+
+  .ind-feature-text h2 {
+    font-size: 1.5rem;
   }
 }

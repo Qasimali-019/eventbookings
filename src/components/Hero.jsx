@@ -1,7 +1,23 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated, user } = useAuth();
+
+  const handleCreateEvent = () => {
+    if (isAuthenticated) {
+      if (user.role === 'admin') {
+        navigate('/admin-dashboard/create-event');
+      } else {
+        navigate('/admin-dashboard');
+      }
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero-content">
@@ -14,7 +30,7 @@ const Hero = () => {
             An easy-to-use event ticketing platform with fair pricing and dedicated human support. All the tools you need for a fraction of the cost charged by other platforms.
           </p>
           <div className="hero-btns">
-            <button className="btn-primary-hero">Create Event</button>
+            <button className="btn-primary-hero" onClick={handleCreateEvent}>Create Event</button>
             <a href="#" className="demo-link">Book A Demo</a>
           </div>
           <div className="hero-ratings">

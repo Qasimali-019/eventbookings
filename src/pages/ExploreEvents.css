@@ -374,4 +374,32 @@
     width: 100%;
     margin-top: 8px;
   }
+
+  .explore-container {
+    padding: 0 16px;
+  }
+
+  .explore-cta-inner h2 {
+    font-size: 28px;
+  }
+
+  .explore-cta-inner p {
+    font-size: 15px;
+  }
+
+  .explore-cta-btn {
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+
+  .date-filters,
+  .category-filters {
+    gap: 6px;
+  }
+
+  .filter-btn,
+  .category-pill {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
 }

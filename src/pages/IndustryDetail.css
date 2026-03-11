@@ -1,0 +1,293 @@
+/* ================================================================
+   Industry Detail Page CSS
+   ================================================================ */
+
+.industry-detail {
+  font-family: 'Inter', sans-serif;
+  color: #1c2438;
+}
+
+.ind-btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.ind-btn--primary {
+  background: #19d36e;
+  color: #fff;
+}
+
+.ind-btn--primary:hover {
+  background: #15bf62;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25, 211, 110, 0.3);
+}
+
+.ind-btn--outline {
+  background: #fff;
+  color: #1c2438;
+  border: 1px solid #e2e8f0;
+}
+
+.ind-btn--outline:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.ind-btn--large {
+  padding: 16px 48px;
+  font-size: 1.1rem;
+}
+
+/* ── HERO ── */
+.ind-hero {
+  padding: 100px 32px 60px;
+  background: #fff;
+}
+
+.ind-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.ind-hero__text h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.ind-hero__text p {
+  font-size: 1.15rem;
+  color: #5a6478;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.ind-hero__ctas {
+  display: flex;
+  gap: 16px;
+}
+
+.ind-hero__image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+}
+
+/* ── COMPARISON ── */
+.ind-comparison {
+  background: #f8fafc;
+  padding: 80px 32px;
+  text-align: center;
+}
+
+.ind-comparison__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ind-comparison h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 48px;
+}
+
+.ind-comparison__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.ind-comp-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.ind-comp-card--eb {
+  border: 2px solid #19d36e;
+}
+
+.ind-comp-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.ind-comp-price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #19d36e;
+  margin-bottom: 8px;
+}
+
+.ind-comp-card:not(.ind-comp-card--eb) .ind-comp-price {
+  color: #1c2438;
+}
+
+.ind-comp-label {
+  color: #5a6478;
+  font-size: 0.95rem;
+}
+
+/* ── ZIGZAG FEATURES ── */
+.ind-features {
+  padding: 100px 32px;
+}
+
+.ind-features__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ind-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.ind-feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.ind-feature-row--reverse {
+  direction: rtl;
+}
+
+.ind-feature-row--reverse > * {
+  direction: ltr;
+}
+
+.ind-feature-text h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.ind-feature-text p {
+  font-size: 1.1rem;
+  color: #5a6478;
+  line-height: 1.7;
+}
+
+.ind-feature-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* ── FAQ ── */
+.ind-faq {
+  padding: 100px 32px;
+  background: #fff;
+}
+
+.ind-faq__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ind-faq h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.ind-faq-item {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 24px 0;
+}
+
+.ind-faq-question {
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ind-faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.ind-faq-icon {
+  font-size: 1.5rem;
+  color: #19d36e;
+  transition: transform 0.3s ease;
+}
+
+.ind-faq-item[open] .ind-faq-icon {
+  transform: rotate(45deg);
+}
+
+.ind-faq-answer {
+  padding-top: 16px;
+  color: #5a6478;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ── BOTTOM CTA ── */
+.ind-bottom-cta {
+  padding: 120px 32px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.ind-bottom-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .ind-hero__inner, .ind-feature-row {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .ind-hero__ctas {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .ind-hero {
+    padding-top: 120px;
+  }
+  
+  .ind-comparison h2, .ind-faq h2, .ind-bottom-cta h2 {
+    font-size: 1.75rem;
+  }
+  
+  .ind-comparison__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ind-feature-row--reverse {
+    direction: ltr;
+  }
+}
+
+@media (max-width: 480px) {
+  .ind-hero__text h1 {
+    font-size: 1.75rem;
+  }
+}

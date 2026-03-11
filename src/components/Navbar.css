@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 80px;
+    background-color: var(--bg-navy);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-menu-list li a,
+.navbar .nav-item-link,
+.navbar .navbar-greeting,
+.navbar .navbar-country {
+    color: #fff;
+}
+
+.navbar .navbar-divider {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-scrolled .navbar-menu-list li a,
+.navbar-scrolled .nav-item-link,
+.navbar-scrolled .navbar-greeting,
+.navbar-scrolled .navbar-country {
+    color: var(--bg-navy);
+}
+
+.navbar-scrolled .navbar-divider {
+    background-color: rgba(6, 33, 39, 0.1);
+}
+
+.navbar-scrolled .navbar-logo {
+    filter: brightness(0);
+}
+
+.navbar-scrolled .nav-item-link[data-active="true"],
+.nav-industry-link {
+    color: var(--primary-color) !important;
+}
+
+/* Make Industry specifically green as per screenshot */
+.navbar-menu-list li:nth-child(2) .nav-item-link {
+    color: var(--primary-color);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-logo {
+    height: 32px;
+    cursor: pointer;
+}
+
+.navbar-divider {
+    width: 1px;
+    height: 24px;
+    margin: 0 24px;
+}
+
+.navbar-menu-list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.navbar-menu-list li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-menu-list li a,
+.nav-item-link {
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+
+.navbar-menu-list li:hover>a,
+.navbar-menu-list li:hover>.nav-item-link {
+    color: var(--primary-color);
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 12px 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #062127 !important; /* Force dark color in white dropdown */
+    transition: all 0.2s;
+    gap: 12px;
+}
+
+.dropdown-item:hover {
+    background-color: #f7f9fa;
+}
+
+.dropdown-item:hover .dropdown-text {
+    color: var(--primary-color);
+}
+
+.dropdown-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.dropdown-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.industry-dropdown {
+    min-width: 200px;
+}
+
+.auth-dropdown {
+    min-width: 200px;
+    right: 0;
+    left: auto;
+    padding: 10px 0;
+}
+
+.country-dropdown {
+    min-width: 220px;
+    right: 0;
+    left: auto;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.country-item {
+    padding: 12px 24px;
+    justify-content: flex-start;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.country-item .dropdown-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #062127;
+}
+
+.country-item .navbar-flag {
+    width: 24px;
+    height: auto;
+    border-radius: 2px;
+}
+
+.help-dropdown {
+    min-width: 180px;
+}
+
+.login-dropdown-trigger, .country-dropdown-trigger {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.simple-item {
+    padding: 12px 24px;
+    font-weight: 500;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.navbar-greeting {
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.navbar-caret {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.navbar-create-event {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.navbar-create-event:hover {
+    background-color: var(--primary-dark);
+}
+
+.navbar-calendar {
+    font-size: 18px;
+}
+
+.navbar-country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.navbar-flag {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+}
+
+.mobile-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+
+.navbar-scrolled .mobile-toggle .bar {
+    background-color: var(--bg-navy);
+}
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .navbar-divider,
+    .navbar-greeting,
+    .navbar-country {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .navbar-menu-list {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px;
+        gap: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+        display: flex;
+    }
+
+    .navbar-menu-list.active {
+        transform: translateX(0);
+    }
+
+    .navbar-menu-list li {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #f0f0f0;
+        display: block;
+    }
+
+    .navbar-menu-list li a,
+    .nav-item-link {
+        color: var(--bg-navy) !important;
+        padding: 20px 0;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 18px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: block;
+        opacity: 1;
+        transform: none;
+        box-shadow: none;
+        padding: 0 0 20px 20px;
+        min-width: 100%;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+
+    .navbar-create-event {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar-logo {
+        height: 26px;
+    }
+    
+    .navbar-create-event .navbar-calendar {
+        display: none;
+    }
+}

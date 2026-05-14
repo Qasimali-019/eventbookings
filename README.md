@@ -52,7 +52,7 @@ Whether you're managing a 50-person workshop or a 10,000-attendee conference, Ev
 
 ---
 
-## ✨ Features
+##  Features
 
 ### Core Platform
 -  **JWT Authentication** — Secure role-based access (User, Admin, Organizer, Host)

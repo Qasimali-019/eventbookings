@@ -17,11 +17,13 @@
 
 ---
 
-![eventbookings](eventbookings/images/Screenshot%202026-05-14%20234212.png)</div>
-
+![eventbookings](images/Screenshot%202026-05-14%20234212.png)
+![Enterprise Screenshot 1](images/eventbookings.vercel.app_enterprise%20%281%29.png)
+![Enterprise Screenshot 2](images/eventbookings.vercel.app_enterprise%20%282%29.png)
+![Enterprise Screenshot 3](images/eventbookings.vercel.app_enterprise%20%283%29.png)
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -36,15 +38,15 @@
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 EventCraft is a **production-ready event management platform** that handles the complete lifecycle of any event — from creation and ticketing to attendee check-in and post-event analytics.
 
 | Event Type | Supported |
 |------------|-----------|
-| 🏢 In-Person | ✅ |
-| 💻 Virtual | ✅ |
-| 🔀 Hybrid | ✅ |
+|  In-Person | ✅ |
+|  Virtual | ✅ |
+|  Hybrid | ✅ |
 
 Whether you're managing a 50-person workshop or a 10,000-attendee conference, EventCraft's **modular architecture** lets you enable only the features you need.
 
@@ -53,17 +55,17 @@ Whether you're managing a 50-person workshop or a 10,000-attendee conference, Ev
 ## ✨ Features
 
 ### Core Platform
-- 🔐 **JWT Authentication** — Secure role-based access (User, Admin, Organizer, Host)
-- 📅 **Event Lifecycle Management** — Draft → Published → Cancelled with full audit trail
-- 🧩 **Modular Event System** — Attach/detach features per event (Agenda, Tickets, Hybrid, Engagement)
-- 🎫 **Ticket Engine** — Capacity management, pricing tiers, oversell prevention
-- 👥 **Attendee Management** — Registration, QR check-in, duplicate prevention via compound indexing
-- ⚡ **Workflow Automation** — Trigger email/SMS actions on registration, attendance thresholds, or time-based events
-- 📊 **Analytics Engine** — Real-time metrics: ticket sales, attendance rates, engagement tracking
-- 📡 **Livestream Module** — Virtual event integration (Zoom, Google Meet, Jitsi-ready)
-- 🔔 **Notification System** — Email & SMS pipeline (SendGrid / Twilio ready)
+-  **JWT Authentication** — Secure role-based access (User, Admin, Organizer, Host)
+-  **Event Lifecycle Management** — Draft → Published → Cancelled with full audit trail
+-  **Modular Event System** — Attach/detach features per event (Agenda, Tickets, Hybrid, Engagement)
+-  **Ticket Engine** — Capacity management, pricing tiers, oversell prevention
+-  **Attendee Management** — Registration, QR check-in, duplicate prevention via compound indexing
+-  **Workflow Automation** — Trigger email/SMS actions on registration, attendance thresholds, or time-based events
+-  **Analytics Engine** — Real-time metrics: ticket sales, attendance rates, engagement tracking
+-  **Livestream Module** — Virtual event integration (Zoom, Google Meet, Jitsi-ready)
+-  **Notification System** — Email & SMS pipeline (SendGrid / Twilio ready)
 
-<!-- 💡 IMAGE SUGGESTION #2: Add a feature overview grid/collage here -->
+<!--  IMAGE SUGGESTION #2: Add a feature overview grid/collage here -->
 <!-- Recommended: 2x3 grid of screenshots showing: event creation form, ticket management, -->
 <!-- attendee list, analytics dashboard, automation rules builder, and livestream page -->
 <!-- Example: ![Feature Overview](./docs/images/features-grid.png) -->
@@ -98,9 +100,9 @@ Whether you're managing a 50-person workshop or a 10,000-attendee conference, Ev
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
-<!-- 💡 IMAGE SUGGESTION #3: System architecture diagram -->
+<!--  IMAGE SUGGESTION #3: System architecture diagram -->
 <!-- Recommended: A clean flowchart showing: Browser → React Frontend → Express API → -->
 <!-- MongoDB / Redis / External Services (Twilio, SendGrid, Zoom) -->
 <!-- Tools to make it: draw.io, Excalidraw, or Lucidchart then export as PNG -->
@@ -139,9 +141,9 @@ This design means events only carry the complexity they need — a simple meetup
 
 ---
 
-## 🗄️ Database Design
+##  Database Design
 
-<!-- 💡 IMAGE SUGGESTION #4: Entity Relationship Diagram (ERD) -->
+<!--  IMAGE SUGGESTION #4: Entity Relationship Diagram (ERD) -->
 <!-- Recommended: ER diagram showing all 8 models and their relationships -->
 <!-- Models: User, Event, EventModule, AgendaItem, Ticket, Attendee, AutomationRule, AnalyticsLog -->
 <!-- Tools: dbdiagram.io (free), draw.io, or Lucidchart -->
@@ -150,7 +152,7 @@ This design means events only carry the complexity they need — a simple meetup
 ### Core Models
 
 <details>
-<summary><strong>👤 User Model</strong></summary>
+<summary><strong> User Model</strong></summary>
 
 | Field | Type | Notes |
 |-------|------|-------|
@@ -176,7 +178,7 @@ This design means events only carry the complexity they need — a simple meetup
 </details>
 
 <details>
-<summary><strong>🎫 Ticket Model</strong></summary>
+<summary><strong> Ticket Model</strong></summary>
 
 | Field | Type | Notes |
 |-------|------|-------|
@@ -188,7 +190,7 @@ This design means events only carry the complexity they need — a simple meetup
 </details>
 
 <details>
-<summary><strong>👥 Attendee Model</strong></summary>
+<summary><strong> Attendee Model</strong></summary>
 
 Compound index on `(userId, eventId)` prevents duplicate registrations at the database level.
 
@@ -201,7 +203,7 @@ Compound index on `(userId, eventId)` prevents duplicate registrations at the da
 </details>
 
 <details>
-<summary><strong>⚡ AutomationRule Model</strong></summary>
+<summary><strong> AutomationRule Model</strong></summary>
 
 | Trigger | Example Action |
 |---------|---------------|
@@ -213,23 +215,23 @@ Compound index on `(userId, eventId)` prevents duplicate registrations at the da
 
 ---
 
-## 📡 API Reference
+##  API Reference
 
 ### Authentication
 
 ```http
 POST   /auth/signup     # Register new user
 POST   /auth/login      # Login → returns JWT
-GET    /auth/me         # Get current user (🔒 Bearer token required)
+GET    /auth/me         # Get current user ( Bearer token required)
 ```
 
 ### Events
 
 ```http
-POST   /events          # Create event (🔒 Organizer)
+POST   /events          # Create event ( Organizer)
 GET    /events          # List events (filter: organizerId, status)
-PUT    /events/:id      # Update event (🔒 Owner only)
-DELETE /events/:id      # Delete event (🔒 Admin/Owner)
+PUT    /events/:id      # Update event ( Owner only)
+DELETE /events/:id      # Delete event ( Admin/Owner)
 ```
 
 ### Tickets & Attendees
@@ -255,11 +257,11 @@ POST   /livestream/connect         # Connect stream
 GET    /livestream/:eventId        # Get stream details
 ```
 
-> 🔒 = Protected route. Include `Authorization: Bearer <token>` header.
+>  = Protected route. Include `Authorization: Bearer <token>` header.
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -336,7 +338,7 @@ curl http://localhost:5000/health
 
 ---
 
-## 🧪 QA & Testing Strategy
+##  QA & Testing Strategy
 
 The project includes a comprehensive QA plan covering:
 
@@ -359,7 +361,7 @@ The project includes a comprehensive QA plan covering:
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [ ] Stripe / PayPal payment integration
 - [ ] QR code ticket generation & scanning
@@ -373,7 +375,7 @@ The project includes a comprehensive QA plan covering:
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 | Layer | Recommended |
 |-------|-------------|
@@ -385,7 +387,7 @@ The project includes a comprehensive QA plan covering:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 Built with 💙 as a full-stack engineering project demonstrating:
 
@@ -400,6 +402,6 @@ Built with 💙 as a full-stack engineering project demonstrating:
 
 <div align="center">
 
-⭐ **If you found this project useful, please give it a star!** ⭐
+ **If you found this project useful, please give it a star!** 
 
 </div>

@@ -1,6 +1,6 @@
 
 
-#  EventCraft
+#  EventBookings
 
 ### Smart Event Management & Booking Platform
 

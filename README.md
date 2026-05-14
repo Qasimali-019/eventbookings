@@ -13,7 +13,7 @@
 
 **A full-stack event management platform for in-person, virtual, and hybrid events — built with scalable architecture, workflow automation, and real-time analytics.**
 
-[📖 API Docs](#-api-reference) · [ Getting Started](#-getting-started) · [ Features](#-features) · [ Architecture](#-architecture)
+[ API Docs](#-api-reference) · [ Getting Started](#-getting-started) · [ Features](#-features) · [ Architecture](#-architecture)
 
 ---
 
@@ -72,7 +72,7 @@ Whether you're managing a 50-person workshop or a 10,000-attendee conference, Ev
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 | Technology | Purpose |
@@ -164,7 +164,7 @@ This design means events only carry the complexity they need — a simple meetup
 </details>
 
 <details>
-<summary><strong>📅 Event Model</strong></summary>
+<summary><strong> Event Model</strong></summary>
 
 | Field | Type | Notes |
 |-------|------|-------|
@@ -322,7 +322,7 @@ curl http://localhost:5000/health
 
 ---
 
-## 🔒 Security
+##  Security
 
 | Feature | Status |
 |---------|--------|
